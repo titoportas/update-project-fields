@@ -16,8 +16,6 @@ Once you've configured your workflow, save it as a `.yml` file in your target Re
 
 ### Example
 
-#### Example Usage: Issue opened with labels `bug` OR `needs-triage`
-
 ```yaml
 name: Create and/or Update edited issues to my project
 
