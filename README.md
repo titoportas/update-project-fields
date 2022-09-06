@@ -2,6 +2,7 @@
 
 Use this action to automatically update [GitHub project (beta)](https://docs.github.com/en/issues/trying-out-the-new-projects-experience/about-projects) item fields.
 Note that this action *does not support [GitHub projects (classic)](https://docs.github.com/en/issues/organizing-your-work-with-project-boards)*.
+
 _The main difference between this lib and others is that you can use a PAT with repo and project scopes instead of org scope._
 
 ## Usage
@@ -16,8 +17,6 @@ Once you've configured your workflow, save it as a `.yml` file in your target Re
 
 ### Example
 
-#### Example Usage: Issue opened with labels `bug` OR `needs-triage`
-
 ```yaml
 name: Create and/or Update edited issues to my project
 
@@ -28,7 +27,7 @@ on:
 
 jobs:
   create-update-project:
-    name: Add issue to project
+    name: Create/update project issue
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -55,7 +54,7 @@ jobs:
   _See [Creating a PAT and adding it to your repository](#creating-a-pat-and-adding-it-to-your-repository) for more details_
 - <a name="item-id">`item-id`</a> **(required)** project item id to be updated. Important: this id is not the issue/pull_request number.
 - <a name="field-keys">`field-keys`</a> **(required)** the github project field names separated with `,`.
-- <a name="field-values">`field-values`</a> **(required)** the github project field values associated to the `field-keys` separated with `,`. If the key has values with special characters (_eg: ✅ Done) you must include them.
+- <a name="field-values">`field-values`</a> **(required)** the github project field values associated to the `field-keys` separated with `,`. If the key has values with special characters (_eg: ✅ Done_) you must include them.
 
 ## Creating a PAT and adding it to your repository
 
