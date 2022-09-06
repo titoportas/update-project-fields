@@ -1,5 +1,5 @@
 name: Update GitHub project fields
-description: Update GitHub project fields
+description: Update GitHub project fields. This action only works with projects beta.
 author: titoportas
 branding:
   icon: refresh-cw
