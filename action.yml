@@ -1,0 +1,26 @@
+name: Update GitHub project fields
+description: Update GitHub project fields
+author: titoportas
+branding:
+  icon: refresh-cw
+  color: gray-dark
+inputs:
+  project-url:
+    required: true
+    description: URL of the project to add issues to
+  github-token:
+    required: true
+    description: A GitHub personal access token with write access to the project
+  item-id:
+    required: true
+    description: Project item id
+  field-keys:
+    required: true
+    description: A comma-separated list of fields
+  field-values:
+    required: true
+    description: A comma-separated list of field values
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
