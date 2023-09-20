@@ -87,7 +87,7 @@ const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
 // TODO: Ensure this (and the Octokit client) works for non-github.com URLs, as well.
 // https://github.com/orgs|users/<ownerName>/projects/<projectNumber>
-const urlParse = /^(?:https:\/\/)?github\.com\/(?<ownerType>orgs|users)\/(?<ownerName>[^/]+)\/projects\/(?<projectNumber>\d+)/;
+const urlParse = /\/(?<ownerType>orgs|users)\/(?<ownerName>[^/]+)\/projects\/(?<projectNumber>\d+)/;
 function getInputItemId() {
     return core.getInput('item-id', { required: true });
 }
@@ -109,7 +109,7 @@ function getProject(octokit) {
         const projectUrl = core.getInput('project-url', { required: true });
         const urlMatch = projectUrl.match(urlParse);
         if (!urlMatch) {
-            throw new Error(`Invalid project URL: ${projectUrl}. Project URL should match the format https://github.com/<orgs-or-users>/<ownerName>/projects/<projectNumber>`);
+            throw new Error(`Invalid project URL: ${projectUrl}. Project URL should match the format <Github server FQDN>/<orgs-or-users>/<ownerName>/projects/<projectNumber>`);
         }
         const projectOwnerName = (_a = urlMatch.groups) === null || _a === void 0 ? void 0 : _a.ownerName;
         const projectNumber = parseInt((_c = (_b = urlMatch.groups) === null || _b === void 0 ? void 0 : _b.projectNumber) !== null && _c !== void 0 ? _c : '', 10);
